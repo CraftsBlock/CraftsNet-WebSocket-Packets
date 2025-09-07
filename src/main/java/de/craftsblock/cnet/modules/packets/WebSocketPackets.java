@@ -1,5 +1,6 @@
 package de.craftsblock.cnet.modules.packets;
 
+import de.craftsblock.cnet.modules.packets.autoregister.PacketListenerAutoRegisterHandler;
 import de.craftsblock.cnet.modules.packets.packet.codec.PacketEncoder;
 import de.craftsblock.cnet.modules.packets.packet.listener.PacketListenerRegistry;
 import de.craftsblock.cnet.modules.packets.protocol.PacketBundleRegistry;
@@ -18,7 +19,7 @@ import org.jetbrains.annotations.NotNull;
  *
  * @author Philipp Maywald
  * @author CraftsBlock
- * @version 1.0.0
+ * @version 1.0.1
  * @see Addon
  * @see PacketEncoder
  * @see PacketListenerRegistry
@@ -46,6 +47,7 @@ public class WebSocketPackets extends Addon {
 
         instance = this;
 
+        getAutoRegisterRegistry().register(new PacketListenerAutoRegisterHandler(this.getCraftsNet(), this));
         getWebSocketEncoderRegistry().register(new PacketEncoder(this));
 
         this.packetListenerRegistry = new PacketListenerRegistry();

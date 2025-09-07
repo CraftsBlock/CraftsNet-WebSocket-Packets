@@ -20,6 +20,7 @@ repositories {
 dependencies {
     implementation platform("de.craftsblock.craftscore:bom:3.8.10")
     implementation "de.craftsblock.craftscore:event"
+    implementation "de.craftsblock.craftscore:json"
     implementation "de.craftsblock.craftscore:utils"
 
     implementation "de.craftsblock:craftsnet:3.5.2"

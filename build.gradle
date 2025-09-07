@@ -11,6 +11,11 @@ file("$rootDir/.env").withInputStream {
 group = 'de.craftsblock.craftsnet.modules'
 version = '1.0.0'
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
 repositories {
     mavenCentral()
     maven { url = "https://repo.craftsblock.de/releases" }

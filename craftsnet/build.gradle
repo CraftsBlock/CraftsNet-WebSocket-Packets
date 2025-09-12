@@ -1,0 +1,17 @@
+description = "craftsnet"
+
+repositories {
+}
+
+dependencies {
+    implementation project(":common")
+    compileOnly "de.craftsblock:craftsnet:3.5.2"
+}
+
+tasks.withType(Jar).configureEach {
+    from sourceSets.main.output
+
+    from(project(":common").sourceSets.main.output)
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}

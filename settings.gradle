@@ -1,1 +1,3 @@
 rootProject.name = 'WebSocketPackets'
+include 'common'
+include 'craftsnet'

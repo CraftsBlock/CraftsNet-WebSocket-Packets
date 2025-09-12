@@ -26,8 +26,15 @@
 <dependencies>
   ...
   <dependency>
-      <groupId>de.craftsblock.craftsnet.modules</groupId>
-      <artifactId>websocketpackets</artifactId>
+      <groupId>de.craftsblock.craftsnet.modules.websocketpackets</groupId>
+      <artifactId>common</artifactId>
+      <version>VERSION</version>
+  </dependency>
+    
+  <!-- If you are using craftsnet you'll also need this dependency -->
+  <dependency>
+      <groupId>de.craftsblock.craftsnet.modules.websocketpackets</groupId>
+      <artifactId>craftsnet</artifactId>
       <version>VERSION</version>
   </dependency>
 </dependencies>
@@ -44,7 +51,10 @@ repositories {
 ```gradle
 dependencies {
   ...
-  implementation "de.craftsblock.craftsnet.modules:websocketpackets:VERSION"
+  implementation "de.craftsblock.craftsnet.modules.websocketpackets:common:VERSION"
+  
+  // If you are using craftsnet you'll also need this dependency
+  implementation "de.craftsblock.craftsnet.modules.websocketpackets:craftsnet:VERSION"
 }
 ```
 
@@ -53,23 +63,26 @@ dependencies {
 1. Apply your web socket endpoint with `@ApplyDecoder`.
 
 ```java
-import de.craftsblock.cnet.modules.packets.networker.Networker;
-import de.craftsblock.cnet.modules.packets.networker.middleware.SimpleNetworkerSetupMiddleware;
-import de.craftsblock.cnet.modules.packets.packet.Packet;
-import de.craftsblock.cnet.modules.packets.packet.codec.PacketDecoder;
+import de.craftsblock.cnet.modules.packets.addon.codec.CraftsNetPacketDecoder;
+import de.craftsblock.cnet.modules.packets.addon.networking.middleware.SimpleNetworkerSetupMiddleware;
+import de.craftsblock.cnet.modules.packets.common.networker.Networker;
+import de.craftsblock.cnet.modules.packets.common.packet.Packet;
 import de.craftsblock.craftsnet.api.middlewares.annotation.ApplyMiddleware;
 import de.craftsblock.craftsnet.api.websocket.SocketExchange;
 import de.craftsblock.craftsnet.api.websocket.SocketHandler;
+import de.craftsblock.craftsnet.api.websocket.WebSocketClient;
 import de.craftsblock.craftsnet.api.websocket.annotations.ApplyDecoder;
 import de.craftsblock.craftsnet.api.websocket.annotations.Socket;
 
+// For this quick start you'll need the websocket packets craftsnet dependency too. 
 public class MyWebsocket implements SocketHandler {
 
     @Socket("/my/packets")
-    @ApplyDecoder(PacketDecoder.class)
+    @ApplyDecoder(CraftsNetPacketDecoder.class)
     @ApplyMiddleware(SimpleNetworkerSetupMiddleware.class)
     public void handle(SocketExchange exchange, Packet packet) {
-        Networker networker = SimpleNetworkerSetupMiddleware.getNetworker(exchange.client());
+        WebSocketClient client = exchange.client();
+        Networker networker = SimpleNetworkerSetupMiddleware.getNetworker(client);
         packet.handle(networker);
     }
 

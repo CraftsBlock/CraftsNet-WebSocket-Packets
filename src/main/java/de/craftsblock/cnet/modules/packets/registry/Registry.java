@@ -1,6 +1,5 @@
 package de.craftsblock.cnet.modules.packets.registry;
 
-import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -14,7 +13,6 @@ import org.jetbrains.annotations.Nullable;
  * @version 1.0.0
  * @since 1.0.0
  */
-@ApiStatus.Internal
 public interface Registry<T> {
 
     /**

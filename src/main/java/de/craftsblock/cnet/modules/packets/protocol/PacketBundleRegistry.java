@@ -136,7 +136,6 @@ public final class PacketBundleRegistry {
      * @return The bundle containing the packet type, or {@code null} if not found.
      */
     @Contract("null -> null")
-    @SuppressWarnings("unchecked")
     public synchronized PacketBundle getBundle(Packet packet) {
         if (packet == null) return null;
         return this.getBundle(packet.getClass());

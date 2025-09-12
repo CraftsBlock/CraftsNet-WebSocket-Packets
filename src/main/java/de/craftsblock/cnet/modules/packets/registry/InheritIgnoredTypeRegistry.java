@@ -80,7 +80,6 @@ public class InheritIgnoredTypeRegistry<T> implements Registry<T> {
      * @return {@code true} if a value is registered for the key, {@code false} otherwise.
      */
     @Override
-    @SuppressWarnings("unchecked")
     public boolean isRegistered(@Nullable Class<? extends T> type) {
         if (type == null) return false;
         return storage.containsKey(type);

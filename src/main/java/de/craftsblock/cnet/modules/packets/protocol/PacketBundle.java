@@ -83,7 +83,6 @@ public record PacketBundle(@NotNull String identifier,
      * @param packet The packet instance to look up.
      * @return The associated packet ID, or {@code -1} if the packet type is not registered.
      */
-    @SuppressWarnings("unchecked")
     public @Range(from = -1, to = Integer.MAX_VALUE) int getId(@Nullable Packet packet) {
         if (packet == null) return -1;
         return this.getId(packet.getClass());
@@ -106,7 +105,6 @@ public record PacketBundle(@NotNull String identifier,
      * @param packet The packet instance to check.
      * @return {@code true} if the packet is registered, {@code false} otherwise.
      */
-    @SuppressWarnings("unchecked")
     public boolean containsPacket(@Nullable Packet packet) {
         if (packet == null) return false;
         return this.containsPacket(packet.getClass());

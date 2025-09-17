@@ -3,16 +3,14 @@ package de.craftsblock.cnet.modules.packets.common.packet;
 import de.craftsblock.cnet.modules.packets.common.networker.Networker;
 import de.craftsblock.cnet.modules.packets.common.networker.environment.Environment;
 import de.craftsblock.craftscore.event.Event;
-import de.craftsblock.craftscore.event.ListenerRegistry;
 import de.craftsblock.craftsnet.utils.ByteBuffer;
 import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.List;
 
 /**
  * Represents a {@link Packet} that wraps a {@link Event} which must also be
- * {@link PacketWritable}.
+ * {@link BufferWritable}.
  * <p>
  * This interface allows events to be sent over the network as packets. It provides
  * default implementations for {@link #write(ByteBuffer)} and {@link #handle(Networker)},
@@ -21,16 +19,16 @@ import java.util.List;
  * <p>
  * Implementing classes must provide the event instance via {@link #getEvent()}.
  *
- * @param <E> The type of {@link Event} that is also {@link PacketWritable}.
+ * @param <E> The type of {@link Event} that is also {@link BufferWritable}.
  * @author Philipp Maywald
  * @author CraftsBlock
  * @version 1.0.0
- * @see Packet
- * @see PacketWritable
+ * @see BufferWritable
  * @see Event
+ * @see Packet
  * @since 1.0.0
  */
-public interface EventPacket<E extends Event & PacketWritable> extends Packet {
+public interface EventPacket<E extends Event & BufferWritable> extends Packet {
 
     /**
      * Serializes the wrapped event into the provided buffer.

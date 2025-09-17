@@ -16,7 +16,7 @@ import org.jetbrains.annotations.NotNull;
  * @see ByteBuffer
  * @since 1.0.0
  */
-public interface PacketWritable {
+public interface BufferWritable {
 
     /**
      * Serializes the implementing object into the provided {@link ByteBuffer}.

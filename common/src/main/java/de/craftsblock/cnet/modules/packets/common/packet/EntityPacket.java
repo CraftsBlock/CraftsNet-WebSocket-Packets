@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
  * @author CraftsBlock
  * @version 1.0.0
  * @see Packet
- * @see PacketWritable
+ * @see BufferWritable
  * @see EntityPacket.Entity
  * @since 1.0.0
  */
@@ -41,10 +41,10 @@ public interface EntityPacket<E extends EntityPacket.Entity> extends Packet {
     /**
      * Represents an entity that can be serialized as part of an {@link EntityPacket}.
      * <p>
-     * Entities must have a unique ID and implement {@link PacketWritable}
+     * Entities must have a unique ID and implement {@link BufferWritable}
      * to allow serialization for network transmission.
      */
-    interface Entity extends PacketWritable {
+    interface Entity extends BufferWritable {
 
         /**
          * Returns the unique identifier of this entity.

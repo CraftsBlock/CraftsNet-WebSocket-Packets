@@ -3,7 +3,6 @@ package de.craftsblock.cnet.modules.packets.common.packet;
 import de.craftsblock.cnet.modules.packets.common.networker.Networker;
 import de.craftsblock.cnet.modules.packets.common.packet.listener.PacketListener;
 import de.craftsblock.craftsnet.utils.ByteBuffer;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * Represents a network {@code Packet} that can be serialized, sent, and handled.
@@ -21,14 +20,7 @@ import org.jetbrains.annotations.NotNull;
  * @see PacketListener
  * @since 1.0.0
  */
-public interface Packet {
-
-    /**
-     * Serializes the packet data into the provided {@link ByteBuffer}.
-     *
-     * @param buffer The buffer to write the packet's data into.
-     */
-    void write(@NotNull ByteBuffer buffer);
+public interface Packet extends BufferWritable {
 
     /**
      * Handles the packet logic when received by a {@link Networker}.

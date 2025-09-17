@@ -108,7 +108,7 @@ public record SimpleWebSocketListener(Environment environment) implements WebSoc
     public CompletionStage<?> onBinary(WebSocket webSocket, ByteBuffer message, boolean last) {
         WebSocketConnection connection = connections.get(webSocket);
         if (connection == null)
-            throw new IllegalStateException("No ");
+            throw new IllegalStateException("No connection found for web socket %s!".formatted(webSocket));
 
         byte[] data = new byte[message.remaining()];
         message.get(data);

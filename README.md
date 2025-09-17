@@ -1,7 +1,8 @@
 # CraftsNet-WebSocket-Packets
 ### Simple packet system for websockets
 
-![Latest Release on Maven](https://repo.craftsblock.de/api/badge/latest/releases/de/craftsblock/craftsnet/modules/websocketpackets?color=40c14a&name=WebSocketPackets&prefix=v)
+![Latest Release on Maven](https://repo.craftsblock.de/api/badge/latest/releases/de/craftsblock/craftsnet/modules/websocketpackets/common?color=40c14a&name=WebSocketPackets%20-%20common&prefix=v)
+![Latest Release on Maven](https://repo.craftsblock.de/api/badge/latest/releases/de/craftsblock/craftsnet/modules/websocketpackets/craftsnet?color=40c14a&name=WebSocketPackets%20-%20craftsnet&prefix=v)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/CraftsBlock/CraftsNet-WebSocketPackets)
 ![GitHub](https://img.shields.io/github/license/CraftsBlock/CraftsNet-WebSocketPackets)
 ![GitHub all releases](https://img.shields.io/github/downloads/CraftsBlock/CraftsNet-WebSocketPackets/total)

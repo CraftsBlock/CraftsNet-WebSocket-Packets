@@ -16,6 +16,8 @@ import org.jetbrains.annotations.Nullable;
  * is fully qualified and initialized with a valid {@link CraftsNet} instance.
  * </p>
  *
+ * @param addon The WebSocketPacketsAddon providing the environment context, never
+ *              {@code null}.
  * @author Philipp Maywald
  * @author CraftsBlock
  * @version 1.0.0
@@ -30,7 +32,7 @@ public record CraftsNetEnvironment(WebSocketPacketsAddon addon) implements Envir
      * </p>
      *
      * @param addon The WebSocketPacketsAddon providing the environment context.
-     * @throws IllegalStateException if the addon does not contain a valid CraftsNet instance.
+     * @throws IllegalStateException if the addon does not contain a valid {@link CraftsNet} instance.
      */
     public CraftsNetEnvironment {
         if (addon().getCraftsNet() == null)

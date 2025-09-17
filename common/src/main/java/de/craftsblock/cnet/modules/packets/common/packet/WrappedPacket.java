@@ -17,6 +17,9 @@ import org.jetbrains.annotations.NotNull;
  * This is typically used when decoding packets from external or unknown sources
  * to ensure no data is lost, even if the specific packet type cannot be instantiated.
  *
+ * @param bundle The bundle identifier of the packet, never {@code null}.
+ * @param id     The ID of the packet within its bundle.
+ * @param data   The raw packet data as a byte array, never {@code null}.
  * @author Philipp Maywald
  * @author CraftsBlock
  * @version 1.0.0

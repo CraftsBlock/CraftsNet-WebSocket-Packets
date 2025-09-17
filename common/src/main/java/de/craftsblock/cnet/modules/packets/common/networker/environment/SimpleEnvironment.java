@@ -13,6 +13,8 @@ import org.jetbrains.annotations.Nullable;
  * complex context or additional dependencies are required.
  * </p>
  *
+ * @param webSocketPackets The {@link WebSocketPackets} instance for this environment, never {@code null}.
+ * @param listenerRegistry The optional {@link ListenerRegistry}, may be {@code null}.
  * @author Philipp Maywald
  * @author CraftsBlock
  * @version 1.0.0

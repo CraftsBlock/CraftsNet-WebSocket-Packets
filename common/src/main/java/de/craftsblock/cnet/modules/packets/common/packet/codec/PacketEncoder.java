@@ -18,6 +18,8 @@ import de.craftsblock.craftsnet.utils.ByteBuffer;
  * Packet size is validated against {@link #MAX_PACKET_SIZE} to prevent
  * oversized transmissions.
  *
+ * @param webSocketPackets The WebSocketPackets instance for resolving packet
+ *                         bundles and IDs, never {@code null}.
  * @author Philipp Maywald
  * @author CraftsBlock
  * @version 1.0.0

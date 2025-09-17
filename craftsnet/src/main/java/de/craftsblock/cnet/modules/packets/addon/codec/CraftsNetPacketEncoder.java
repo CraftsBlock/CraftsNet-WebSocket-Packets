@@ -11,6 +11,8 @@ import de.craftsblock.craftsnet.utils.ByteBuffer;
  * Wraps a {@link PacketEncoder} to convert packets into {@link ByteBuffer} instances
  * suitable for safe transmission over WebSocket connections.
  *
+ * @param encoder The underlying {@link PacketEncoder} used for encoding
+ *                {@link Packet} instances, never {@code null}.
  * @author CraftsBlock
  * @version 1.0.0
  * @since 1.1.0

@@ -8,8 +8,30 @@ import de.craftsblock.craftsnet.api.websocket.WebSocketClient;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Range;
 
+/**
+ * A {@link Networker} implementation backed by a {@link WebSocketClient}.
+ * <p>
+ * Provides methods to send {@link Packet packets} to the client, disconnect the client,
+ * and retrieve the unique identifier and associated {@link Environment}.
+ * Each instance is uniquely identified by a {@link Snowflake}-generated ID.
+ *
+ * @param id          The unique identifier for this networker instance.
+ * @param environment The environment associated with this networker, never {@code null}.
+ * @param client      The WebSocketClient used for communication, never {@code null}.
+ * @author Philipp Maywald
+ * @author CraftsBlock
+ * @version 1.0.0
+ * @since 1.0.0
+ */
 public record WebSocketClientNetworker(long id, Environment environment, WebSocketClient client) implements Networker {
 
+    /**
+     * Constructs a new {@link WebSocketClientNetworker} with an automatically generated unique ID.
+     *
+     * @param environment The environment associated with this networker, never {@code null}.
+     * @param client The WebSocketClient used for communication, never {@code null}.
+     * @throws IllegalStateException If the environment is null.
+     */
     public WebSocketClientNetworker(Environment environment, WebSocketClient client) {
         this(Snowflake.generate(), environment, client);
     }
@@ -53,6 +75,11 @@ public record WebSocketClientNetworker(long id, Environment environment, WebSock
         return id();
     }
 
+    /**
+     * Returns the {@link Environment} associated with this networker.
+     *
+     * @return The environment, never {@code null}.
+     */
     @Override
     public Environment getEnvironment() {
         return environment();

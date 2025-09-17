@@ -9,6 +9,7 @@ import de.craftsblock.cnet.modules.packets.common.packet.codec.PacketEncoder;
 import de.craftsblock.craftsnet.addon.Addon;
 import de.craftsblock.craftsnet.addon.meta.annotations.Meta;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Addon integrating the {@link WebSocketPackets} into CraftsNet.
@@ -21,14 +22,13 @@ import org.jetbrains.annotations.NotNull;
 @Meta(name = "WebSocketPackets")
 public class WebSocketPacketsAddon extends Addon {
 
-    private final @NotNull Environment environment;
+    private @Nullable Environment environment;
     private final @NotNull WebSocketPackets webSocketPackets;
 
     /**
      * Constructs a new {@link WebSocketPacketsAddon}.
      */
     public WebSocketPacketsAddon() {
-        this.environment = new CraftsNetEnvironment(this);
         this.webSocketPackets = new WebSocketPackets();
     }
 
@@ -42,6 +42,8 @@ public class WebSocketPacketsAddon extends Addon {
     @Override
     public void onLoad() {
         this.webSocketPackets.onLoad();
+        this.environment = new CraftsNetEnvironment(this);
+
         this.getAutoRegisterRegistry().register(
                 new PacketListenerAutoRegisterHandler(this.getCraftsNet(), this.webSocketPackets)
         );
@@ -59,6 +61,7 @@ public class WebSocketPacketsAddon extends Addon {
     @Override
     public void onDisable() {
         this.webSocketPackets.onDisable();
+        this.environment = null;
     }
 
     /**
@@ -66,7 +69,7 @@ public class WebSocketPacketsAddon extends Addon {
      *
      * @return The environment instance, never {@code null}.
      */
-    public @NotNull Environment getEnvironment() {
+    public @Nullable Environment getEnvironment() {
         return environment;
     }
 

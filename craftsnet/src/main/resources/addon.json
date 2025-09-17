@@ -1,0 +1,10 @@
+{
+  "name": "WebSocketPackets",
+  "main": "de.craftsblock.cnet.modules.packets.addon.WebSocketPacketsAddon",
+  "version": "1.0.0",
+  "author": [
+    "Philipp Maywald",
+    "CraftsBlock"
+  ],
+  "website": "https://craftsblock.de"
+}

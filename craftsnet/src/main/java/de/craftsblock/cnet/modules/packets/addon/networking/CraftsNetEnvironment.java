@@ -35,7 +35,7 @@ public record CraftsNetEnvironment(WebSocketPacketsAddon addon) implements Envir
      * @throws IllegalStateException if the addon does not contain a valid {@link CraftsNet} instance.
      */
     public CraftsNetEnvironment {
-        if (addon().getCraftsNet() == null)
+        if (addon == null || addon.getCraftsNet() == null)
             throw new IllegalStateException("Not a fully qualified craftsnet environment!");
     }
 

@@ -5,7 +5,9 @@ repositories {
 
 dependencies {
     implementation project(":common")
-    compileOnly "de.craftsblock:craftsnet:3.5.2"
+
+    // https://repo.craftsblock.de/#/releases/de/craftsblock/craftsnet
+    compileOnly "de.craftsblock:craftsnet:3.5.3"
 }
 
 tasks.withType(Jar).configureEach {
